@@ -1,0 +1,36 @@
+name: CD Production (AKS)
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  RG_NAME: deakinuni
+  AKS_NAME: kaustubhweek10aks-prod
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (manifests)
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Get AKS credentials (prod)
+        run: az aks get-credentials --resource-group $RG_NAME --name $AKS_NAME --overwrite-existing
+
+      # Option A: deploy exactly what staging ran (pin to same SHA via merge commit)
+      - name: Pin images to commit SHA
+        run: |
+          SHA=${{ github.sha }}
+          for f in k8s/*.yaml; do
+            sed -i "s#:latest#:${SHA}#g" "$f"
+          done
+
+      - name: Apply K8s manifests (prod)
+        run: kubectl apply -f k8s/
