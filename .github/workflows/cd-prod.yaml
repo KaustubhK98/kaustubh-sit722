@@ -7,7 +7,7 @@ on:
 
 env:
   RG_NAME: deakinuni
-  AKS_NAME: kaustubhweek10aks-prod
+  AKS_NAME: kaustubhweek10aks
 
 jobs:
   deploy-prod:
