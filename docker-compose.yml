@@ -91,6 +91,7 @@ services:
     environment:
       POSTGRES_HOST: product_db # Connects to the 'product_db' service within Docker network
       AZURE_STORAGE_ACCOUNT_NAME: kaustubhweek10storage
+      AZURE_STORAGE_ACCOUNT_KEY: vOKWjkwC1bRlgkAxH1QxLoxLZGkUwWkUTCTACrJaXlh2Hj6eNi5NzLvZAfku0fBwOj0/7Ns3o7X7+AStr2w4gQ==
       AZURE_STORAGE_CONTAINER_NAME: kaustubhweek10storage
       AZURE_SAS_TOKEN_EXPIRY_HOURS: 24
       RABBITMQ_HOST: rabbitmq # Internal Docker network hostname for RabbitMQ
