@@ -1,4 +1,3 @@
-# Trigger
 name: CI Build & Test & Push to ACR
 
 on:

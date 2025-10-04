@@ -1,9 +1,9 @@
-# weekw10/k8s/order-db.yaml
+# week05/k8s/order-db.yaml
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-db-deployment-ww10-aks
+  name: order-db-deployment-w05-aks
   labels:
     app: order-db
 spec:
@@ -25,23 +25,23 @@ spec:
             - name: POSTGRES_DB
               valueFrom:
                 configMapKeyRef:
-                  name: ecomm-config-ww10-aks
+                  name: ecomm-config-w05-aks
                   key: ORDERS_DB_NAME
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: ecomm-secrets-ww10-aks
+                  name: ecomm-secrets-w05-aks
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: ecomm-secrets-ww10-aks
+                  name: ecomm-secrets-w05-aks
                   key: POSTGRES_PASSWORD
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: order-db-service-ww10-aks
+  name: order-db-service-w05-aks
   labels:
     app: order-db
 spec:
