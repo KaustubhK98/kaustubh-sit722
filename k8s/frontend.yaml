@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: kaustubhweek10acr.azurecr.io/week10-frontend:v1
+          image: kaustubhweek10acr.azurecr.io/frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

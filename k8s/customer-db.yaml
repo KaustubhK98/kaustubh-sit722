@@ -1,9 +1,9 @@
-# weekw10/k8s/customer-db.yaml
+# week05/k8s/customer-db.yaml
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: customer-db-deployment-ww10-aks
+  name: customer-db-deployment-w05-aks
   labels:
     app: customer-db
 spec:
@@ -25,23 +25,23 @@ spec:
             - name: POSTGRES_DB
               valueFrom:
                 configMapKeyRef:
-                  name: ecomm-config-ww10-aks
+                  name: ecomm-config-w05-aks
                   key: CUSTOMERS_DB_NAME
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: ecomm-secrets-ww10-aks
+                  name: ecomm-secrets-w05-aks
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: ecomm-secrets-ww10-aks
+                  name: ecomm-secrets-w05-aks
                   key: POSTGRES_PASSWORD
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: customer-db-service-ww10-aks
+  name: customer-db-service-w05-aks
   labels:
     app: customer-db
 spec:

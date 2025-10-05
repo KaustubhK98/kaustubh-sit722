@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: customer-service-container
-          image: kaustubhweek10acr.azurecr.io/week10-customer_service:v1
+          image: kaustubhweek10acr.azurecr.io/customer_service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
